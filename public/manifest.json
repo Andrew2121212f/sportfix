@@ -1,11 +1,11 @@
 {
-  "name": "FastScore — Live Sports Scores",
-  "short_name": "FastScore",
-  "description": "Live sports scores, real-time odds, match results and statistics.",
+  "name": "SportFix — Live Sports Scores",
+  "short_name": "SportFix",
+  "description": "Live sports scores, real-time odds and betting on 1xBet.",
   "start_url": "/en",
   "display": "standalone",
-  "background_color": "#0b0f1a",
-  "theme_color": "#22c55e",
+  "background_color": "#0a1428",
+  "theme_color": "#3b82f6",
   "orientation": "portrait-primary",
   "icons": [
     {
