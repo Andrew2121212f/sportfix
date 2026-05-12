@@ -1,7 +1,11 @@
-export const API_BASE_URL = process.env.API_BASE_URL || "";
-export const API_CLIENT_ID = process.env.API_CLIENT_ID || "";
-export const API_CLIENT_SECRET = process.env.API_CLIENT_SECRET || "";
-export const API_REF = parseInt(process.env.API_REF || "282", 10);
+// .trim() защищает от случайного \n или пробелов, попавших в env через
+// `echo ... | vercel env add` или копипаст из UI с переносом строки.
+// Без trim API возвращало 0 матчей — заголовок Authorization приходил
+// с переносом и сервер не принимал токен.
+export const API_BASE_URL = (process.env.API_BASE_URL || "").trim();
+export const API_CLIENT_ID = (process.env.API_CLIENT_ID || "").trim();
+export const API_CLIENT_SECRET = (process.env.API_CLIENT_SECRET || "").trim();
+export const API_REF = parseInt((process.env.API_REF || "282").trim(), 10);
 
 export const CACHE_TTL = {
   TOKEN: 3500,

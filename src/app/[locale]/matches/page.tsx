@@ -14,6 +14,7 @@ import CountryFlag from "@/components/sports/country-flag";
 import SportTabs from "@/components/sports/sport-tabs";
 import { TournamentGroupSkeleton } from "@/components/ui/skeletons";
 import { sortTournamentEntries } from "@/lib/league-priority";
+import { MOCK_PREMATCH_EVENTS } from "@/lib/mock-data";
 
 export default function MatchesPage() {
   const locale = useLocale();
@@ -26,9 +27,9 @@ export default function MatchesPage() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
-  // На /matches используем только реальные данные с API.
-  // Если API ничего не вернул — показываем empty state, а не моки.
-  const events = (data?.items || []) as any[];
+  // SportFix-копия: mock fallback пока API не настроен под 1xBet
+  // (на fastscore — empty state, на копии — демо-матчи чтобы было что показывать).
+  const events = (data?.items?.length ? data.items : MOCK_PREMATCH_EVENTS) as any[];
   const groupedByDate = groupBy(events, (e: any) => formatDateSafe(e.startDate));
 
   return (

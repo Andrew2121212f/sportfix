@@ -17,7 +17,7 @@ import { TournamentLogo } from "@/components/sports/team-logo";
 import MatchRow from "@/components/sports/match-row";
 import CountryFlag from "@/components/sports/country-flag";
 import { sortTournamentEntries } from "@/lib/league-priority";
-import { POPULAR_LEAGUES } from "@/lib/mock-data";
+import { POPULAR_LEAGUES, MOCK_LIVE_EVENTS, MOCK_PREMATCH_EVENTS } from "@/lib/mock-data";
 import { getLocalLeagueLogo } from "@/lib/league-logos";
 import { useTheme } from "@/components/theme-provider";
 import { TournamentGroupSkeleton } from "@/components/ui/skeletons";
@@ -39,10 +39,11 @@ export default function HomeClient() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
 
-  // Только реальные данные с API. Без mock-фоллбэка — иначе на проде
-  // показываются "старые" демо-матчи когда API пуст.
-  const liveEvents = (liveData?.items || []) as any[];
-  const prematchEvents = (prematchData?.items || []) as any[];
+  // Для SportFix-копии используем mock fallback когда API пуст —
+  // партнёрский ref ещё не настроен под 1xBet, и без mock страница
+  // была бы пустой ("No matches"). На fastscore mock убран намеренно.
+  const liveEvents = (liveData?.items?.length ? liveData.items : MOCK_LIVE_EVENTS) as any[];
+  const prematchEvents = (prematchData?.items?.length ? prematchData.items : MOCK_PREMATCH_EVENTS) as any[];
   const groupedPrematch = groupBy(prematchEvents, (e: any) => e.tournamentNameLocalization || "Other");
   const groupedLive = groupBy(liveEvents, (e: any) => e.tournamentNameLocalization || "Other");
 
