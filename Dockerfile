@@ -29,6 +29,11 @@ WORKDIR /app
 ARG NEXT_PUBLIC_SITE_URL
 ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
 
+# Включаем output:"standalone" в next.config — нужен для минимального
+# контейнерного образа. Без этой переменной next.config оставляет дефолт
+# (нужно для Vercel, где standalone ломает локализованные маршруты).
+ENV BUILD_STANDALONE=1
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 

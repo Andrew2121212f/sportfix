@@ -6,10 +6,11 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   reactCompiler: true,
   allowedDevOrigins: ["127.0.0.1", "localhost"],
-  // standalone output — нужен для Docker self-hosted деплоя.
-  // Создаёт .next/standalone/ с минимальным набором node_modules для запуска.
-  // На Vercel игнорируется (Vercel использует свой формат).
-  output: "standalone",
+  // standalone output включаем ТОЛЬКО когда задана env BUILD_STANDALONE=1
+  // (Docker self-hosted деплой). На Vercel — стандартная сборка, потому что
+  // standalone там ломает обработку i18n-routes (страницы возвращали пустой HTML).
+  // Dockerfile передаёт BUILD_STANDALONE=1 в Stage 2 (builder).
+  ...(process.env.BUILD_STANDALONE === "1" ? { output: "standalone" as const } : {}),
   images: {
     remotePatterns: [
       {
