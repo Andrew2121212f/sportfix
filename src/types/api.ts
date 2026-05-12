@@ -103,6 +103,14 @@ export interface ApiListResponse<T> {
   items: T[] | null;
 }
 
+/**
+ * Ответ деталей одного матча — discriminated union по полю source.
+ * Используется на странице /events/[id] и в /api/events/[id].
+ */
+export type EventDetailResponse =
+  | { source: "live"; data: LiveSportEvent }
+  | { source: "prematch"; data: SportEvent };
+
 export interface ApiLoadListResponse {
   count: number;
   lastIndex: number;
