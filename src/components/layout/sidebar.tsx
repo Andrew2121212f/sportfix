@@ -72,7 +72,7 @@ export default function Sidebar() {
       {/* Logo */}
       <div className="px-5 py-3.5 flex items-center justify-between">
         <Link href={`/${locale}`} className="flex items-center gap-2.5 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-gold text-black font-extrabold text-sm shadow-md shadow-brand-gold/20">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-gold text-white font-extrabold text-sm shadow-md shadow-brand-gold/20">
             SF
           </div>
           <span className="text-lg font-bold tracking-tight">

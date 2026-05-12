@@ -217,7 +217,7 @@ export default function Topbar() {
             href={`${EXTERNAL_PLATFORM}?utm_source=sportfix&utm_medium=topbar`}
             target="_blank"
             rel="noopener noreferrer sponsored"
-            className="inline-flex items-center justify-center gap-2 h-9 w-9 sm:w-auto sm:px-4 sm:py-2 bg-brand-gold text-black text-sm font-bold rounded-xl hover:brightness-110 transition-all shadow-md shadow-brand-gold/40"
+            className="inline-flex items-center justify-center gap-2 h-9 w-9 sm:w-auto sm:px-4 sm:py-2 bg-brand-gold text-white text-sm font-bold rounded-xl hover:brightness-110 transition-all shadow-md shadow-brand-gold/40"
             aria-label="Bet on 1xBet"
           >
             <ExternalLink className="h-4 w-4 sm:h-3.5 sm:w-3.5" />

@@ -58,7 +58,7 @@ export default function PartnerCTA({
   // Solid — золотой контраст на тёмном фоне, главный CTA-цвет SportFix
   const variantClass =
     variant === "solid"
-      ? "bg-brand-gold text-black font-bold hover:brightness-110 shadow-lg shadow-brand-gold/30"
+      ? "bg-brand-gold text-white font-bold hover:brightness-110 shadow-lg shadow-brand-gold/30"
       : variant === "outline"
       ? "border border-brand-gold/60 text-brand-gold font-semibold hover:bg-brand-gold/10"
       : "w-full justify-between bg-gradient-to-r from-brand-gold/15 to-brand-gold/5 border border-brand-gold/30 text-brand-gold font-bold hover:brightness-110";
