@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "fastscore",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /c/Work/fastscore && npm run dev"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+# Игнорим всё что не нужно в контексте Docker-сборки.
+# Уменьшает размер контекста и ускоряет билд.
+
+# Build artifacts (Next.js пересоберёт)
+.next
+out
+build
+dist
+
+# Зависимости (Dockerfile установит сам)
+node_modules
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE / редакторы
+.vscode
+.idea
+.cursor
+.claude
+*.swp
+.DS_Store
+
+# Логи / временные
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# Тесты (если будут)
+coverage
+.nyc_output
+
+# Env-файлы (передаются через --env-file при запуске)
+.env
+.env.local
+.env.development
+.env.production
+
+# Документация (не нужна в контейнере)
+docs
+README.md
+DEPLOY.md
+NEWS_GUIDE.md
+DATA_LAYER_ANALYSIS.md
+
+# Vercel / Netlify конфиги
+.vercel
+.netlify
+
+# Локальные screenshot'ы playwright
+.playwright-mcp
+*.jpeg
+*.png
+
+# OS
+Thumbs.db
