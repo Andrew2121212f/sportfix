@@ -40,6 +40,22 @@
       "cancelled": "ملغاة",
       "interrupted": "متوقفة",
       "var": "مراجعة الفيديو"
+    },
+    "detail": {
+      "kickoffIn": "بدء المباراة بعد",
+      "startsAt": "تبدأ في",
+      "currentPeriod": "الشوط",
+      "matchTime": "وقت المباراة",
+      "score": "النتيجة",
+      "betCta": "راهن مع 1xBet",
+      "tabs": {
+        "overview": "نظرة عامة",
+        "h2h": "المواجهات المباشرة",
+        "stats": "الإحصائيات"
+      },
+      "notFound": "المباراة غير موجودة",
+      "errorLoading": "تعذر تحميل بيانات المباراة",
+      "loading": "جارٍ تحميل المباراة…"
     }
   },
   "sport": {

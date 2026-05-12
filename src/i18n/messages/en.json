@@ -40,6 +40,22 @@
       "cancelled": "Cancelled",
       "interrupted": "Interrupted",
       "var": "VAR Review"
+    },
+    "detail": {
+      "kickoffIn": "Kickoff in",
+      "startsAt": "Starts at",
+      "currentPeriod": "Period",
+      "matchTime": "Match time",
+      "score": "Score",
+      "betCta": "Bet on SportFix",
+      "tabs": {
+        "overview": "Overview",
+        "h2h": "Head to Head",
+        "stats": "Statistics"
+      },
+      "notFound": "Event not found",
+      "errorLoading": "Could not load match data",
+      "loading": "Loading match…"
     }
   },
   "sport": {

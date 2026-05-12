@@ -40,6 +40,22 @@
       "cancelled": "Annulé",
       "interrupted": "Interrompu",
       "var": "Révision VAR"
+    },
+    "detail": {
+      "kickoffIn": "Coup d'envoi dans",
+      "startsAt": "Début à",
+      "currentPeriod": "Période",
+      "matchTime": "Temps de match",
+      "score": "Score",
+      "betCta": "Pariez sur SportFix",
+      "tabs": {
+        "overview": "Aperçu",
+        "h2h": "Confrontations",
+        "stats": "Statistiques"
+      },
+      "notFound": "Événement introuvable",
+      "errorLoading": "Impossible de charger les données du match",
+      "loading": "Chargement du match…"
     }
   },
   "sport": {

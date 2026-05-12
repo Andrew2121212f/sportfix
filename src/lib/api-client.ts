@@ -95,6 +95,63 @@ export async function getLiveEvents(params: {
   );
 }
 
+/**
+ * Одно live-событие по sportEventId.
+ * Дёргает тот же list-endpoint но фильтрует по id (отдельной точки в API нет).
+ * Возвращает null если не нашли.
+ */
+export async function getLiveEventDetail(params: {
+  sportEventId: number;
+  lng?: string;
+}): Promise<LiveSportEvent | null> {
+  try {
+    const list = await apiFetch<ApiListResponse<LiveSportEvent>>(
+      "/gateway/marketing/datafeed/live/api/v2/sportevents",
+      {
+        ref: String(API_REF),
+        lng: params.lng || "en",
+        periods: "0",
+        vids: "1",
+        types: "1",
+        count: "200",
+        schemeOfGettingOddsOperations: "GetMainOdds",
+      },
+      CACHE_TTL.LIVE
+    );
+    return (list.items || []).find((e) => e.sportEventId === params.sportEventId) || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Одно prematch-событие по sportEventId.
+ * Аналогично getLiveEventDetail — фильтр по id из общего списка.
+ */
+export async function getPrematchEventDetail(params: {
+  sportEventId: number;
+  lng?: string;
+}): Promise<SportEvent | null> {
+  try {
+    const list = await apiFetch<ApiListResponse<SportEvent>>(
+      "/gateway/marketing/datafeed/prematch/api/v2/sportevents",
+      {
+        ref: String(API_REF),
+        lng: params.lng || "en",
+        periods: "0",
+        vids: "1",
+        types: "1",
+        count: "200",
+        schemeOfGettingOddsOperations: "GetMainOdds",
+      },
+      CACHE_TTL.PREMATCH
+    );
+    return (list.items || []).find((e) => e.sportEventId === params.sportEventId) || null;
+  } catch {
+    return null;
+  }
+}
+
 export async function getSports(lng = "en"): Promise<SportV3Item[]> {
   const data = await apiFetch<SportV3Item[]>(
     "/gateway/marketing/datafeed/directories/api/v2/sports",
